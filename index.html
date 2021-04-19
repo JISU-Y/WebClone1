@@ -26,7 +26,7 @@
     <!-- Navbar -->
     <nav id="navbar">
         <div class="navbar__logo">
-            <i class="imgs/disease-solid"></i>
+            <i class="fas fa-disease"></i>
             <a href="#">JISU</a>
         </div>
         <div class="navbar__menu">
@@ -54,7 +54,51 @@
         <button class="home__contact">Contact Me</button>
     </section>
     <!-- About -->
-    <section id="about"></section>
+    <section id="about">
+        <!-- 컨테이너(블록) 안의 내용(포맷)들이 반복됨.
+        제목 -> 설명 -> 이미지 -> 내용 등등
+    그래서 각각 블록으로 관리될 수 있도록 제네릭하게 해주어야한다. -->
+        <h1>About me</h1>
+        <p>
+            아직 프론트 엔드를 접하는 중이지만, 할 것은 많지만, 주눅들지 않고, 해낼 것예요.<br>
+            저는 저를 믿습니다.
+        </p>
+        <div class="about__majors">
+            <div class="major">
+                <div class="major__icon">
+                    <i class="fas fa-language"></i>
+                </div>
+                <div class="major__title">Language</div>
+                <div class="major__description">Fluent in Korean,<br>Not bad in English.</div>
+            </div>
+            <div class="major">
+                <div class="major__icon">
+                    <i class="far fa-file-code"></i>
+                </div>
+                <div class="major__title">Front-end</div>
+                <div class="major__description">HTML, CSS<br>still learning Javascript</div>
+            </div>
+            <div class="major">
+                <div class="major__icon">
+                    <i class="far fa-smile-beam"></i>
+                </div>
+                <div class="major__title">Positivity</div>
+                <div class="major__description">Always keep me posivite<br>no matter what. And make it happen.</div>
+            </div>
+        </div>
+        <div class="about__jobs">
+            <div class="job">
+                <img src="imgs/ATIlogo.png" alt="ati" class="job__logo">
+                <p class="job__name">ATI - Field Application Engineer</p>
+                <p class="job__period">2019.06.17 ~ 2021.05.01</p>
+            </div>
+            <div class="job">
+                <img src="imgs/ATIlogo.png" alt="ati" class="job__logo">
+                <p class="job__name">ATI - Application Engineer</p>
+                <p class="job__period">2019.06.17 ~ 2021.05.01</p>
+            </div>
+        </div>
+    </section>
     <!-- skills -->
     <section id="skills"></section>
     <!-- work -->
