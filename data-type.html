@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Attributes</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: tomato;
+            margin-bottom: 50px;
+        }
+        /* id없이 data-를 name을 이용해서 설정 가능
+        div 중에만 name이 dream인 것들만 설정해줌  */
+        div[data-display-name='dream'] {
+            background-color: beige;
+        }
+    </style>
+</head>
+<body>
+    <!-- 이 객체를 알려주기 위한 이 이름
+    나중에 css나 javascript에서 이 친구의 name을 가지고 읽을 수 있다. -->
+    <div data-index="1" data-display-name="dream"></div>
+    <div data-index="2" data-display-name="coding"></div>
+    <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
+    <span data-index="1" data-display-name="dream">sdfsdfsdf</span>
+    <script>
+        // 선택자
+        // 그냥 'div'만 하면 처음 div를 선택해서 할당해줌
+        // 중복 쌍따옴표 주의
+        const dream = document.querySelector('div[data-display-name="dream"]');
+        // console에 로그 띄우는 것
+        console.log(dream.dataset);
+        // html에서 data-로 설정했던 이름들 -뒤에 CamelCase로 바뀜, 그거 입력해줘야함
+        console.log(dream.dataset.displayName);
+        console.log(dream.dataset.index);
+    </script>
+</body>
+</html>

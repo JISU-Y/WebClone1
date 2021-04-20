@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom properties</title>
+    <style>
+        :root {
+            /* --는 변수 선언 */
+            --font-size: 32px;
+            --background-color: thistle;
+            --color: whitesmoke;
+            --base-space: 8px;
+        }
+        .first-list {
+            /* color 색을 const 변수를 선언해서 사용하는 것을 추천 */
+            background-color: var(--background-color);
+            color: var(--color);
+            /* 기본 값이 없으면 , 뒤에 default값을 넣어주어도 된다. */
+            margin-left: var(--base-space, 8);
+            /* var 함수를 이용해서 변수의 값을 읽어와야한다.
+            형제 노드에는 접근 불가능하나 모든 자식 노드에서 모두 접근 가능하다.
+            그래서 가장 높은 root에 선언한다. */
+            font-size: var(--font-size);
+        }
+        .second-list {
+            background-color: var(--background-color);
+            color: var(--color);
+            /* calc 함수 이용 가능 */
+            margin-left: calc(var(--base-space) * 2);
+        }
+
+        @media screen and (max-width: 768px) {
+            /* media query를 적용할 때 유용
+            root 설정을 한꺼번에 바꿔줘서
+            사용하고 있는 변수들 설정을 손쉽게 변경할 수 있다. */
+            :root {
+            --background-color: salmon;
+            --color: blue;
+            --base-space: 4px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <ul class="first-list">
+        <li>Orange</li>
+        <li>Apple</li>
+    </ul>
+    <ul class="second-list">
+        <li>Korea</li>
+        <li>Japan</li>
+        <li>China</li>
+    </ul>
+</body>
+</html>
