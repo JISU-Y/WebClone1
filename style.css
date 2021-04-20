@@ -1,0 +1,32 @@
+/*  Global */
+:root {
+  /* Color */
+  --color-white: white;
+  --color-black: black;
+  --color-grey: grey;
+  --color-dark-grey: #4d4d4d;
+  --color-mint: #c4d6ca;
+  --color-grey-mint: #a9b4ac;
+  --color-pink: #f5b6af;
+
+  /* Font size */
+  --font-large: 48px;
+  --font-medium: 28px;
+  --font-regular: 18px;
+  --font-small: 16px;
+  --font-micro: 14px;
+
+  /* Font weight */
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  --weight-regular: 400;
+
+  /* Size */
+}
+
+/* Universal tags */
+* {
+  /* 모든 곳에서 패딩이나 border를 주었을 떄
+    크기가 계속 커지지 않도록 */
+  box-sizing: border-box;
+}
