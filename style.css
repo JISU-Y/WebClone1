@@ -8,6 +8,7 @@
   --color-mint: #c4d6ca;
   --color-grey-mint: #a9b4ac;
   --color-pink: #f5b6af;
+  --color-hot-pink: hotpink;
 
   /* Font size */
   --font-large: 48px;
@@ -22,6 +23,7 @@
   --weight-regular: 400;
 
   /* Size */
+  --size-border-radius: 4px;
 }
 
 /* Universal tags */
@@ -29,6 +31,31 @@
   /* 모든 곳에서 패딩이나 border를 주었을 떄
     크기가 계속 커지지 않도록 */
   box-sizing: border-box;
+}
+
+body {
+  /* font 바꾸기 */
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  /* 항목에 갖다대도 마우스 모양 안바뀌도록 */
+  cursor: default;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
 }
 
 /* Typography */
@@ -60,4 +87,69 @@ p {
   font-weight: var(--weight-regular);
   color: var(--color-black);
   margin: 4px 0;
+}
+
+/* Navbar */
+#navbar {
+  /* 이름 / 리스트 이렇게 박스로
+    두개로 나눌 거기 때문에 */
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-pink);
+  align-items: center;
+  color: var(--color-white);
+  padding: 16px;
+}
+
+.navbar__menu {
+  display: flex;
+}
+
+.navbar__logo {
+  font-size: var(--font-medium);
+  font-weight: var(--weight-semi-bold);
+}
+
+.navbar__menu__item {
+  padding: 8px 12px;
+  margin: 0 4px;
+  cursor: pointer;
+  border-radius: var(--size-border-radius);
+}
+
+.navbar__menu__item.active {
+  border: 1px solid var(--color-white);
+}
+
+.navbar__menu__item:hover {
+  background-color: var(--color-hot-pink);
+}
+
+/* Home */
+#home {
+  background: url("imgs/homeBackground.png") center/cover no-repeat;
+  padding: 40px;
+  text-align: center;
+}
+
+.home__avatar {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 2px solid var(--color-white);
+}
+
+.home__title,
+.home__description {
+  color: var(--color-white);
+}
+
+.home__contact {
+  color: var(--color-white);
+  font-size: var(--font-regular);
+  font-weight: var(--weight-bold);
+  margin: 24px;
+  padding: 8px 12px;
+  border: 2px solid var(--color-white);
+  border-radius: var(--size-border-radius);
 }
