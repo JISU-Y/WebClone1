@@ -30,3 +30,34 @@
     크기가 계속 커지지 않도록 */
   box-sizing: border-box;
 }
+
+/* Typography */
+h1 {
+  font-size: var(--font-large);
+  font-weight: var(--weight-bold);
+  color: var(--color-black);
+  /* 마진은 두개 쓰면 위아래 / 양옆 
+  4개 쓰면 위부터 시계방향으로 적용*/
+  margin: 16px 0;
+}
+
+h2 {
+  font-size: var(--font-regular);
+  font-weight: var(--weight-semi-bold);
+  color: var(--color-black);
+  margin: 8px 0;
+}
+
+h3 {
+  font-size: var(--font-regular);
+  font-weight: var(--weight-regular);
+  color: var(--color-black);
+  margin: 8px 0;
+}
+
+p {
+  font-size: var(--font-regular);
+  font-weight: var(--weight-regular);
+  color: var(--color-black);
+  margin: 4px 0;
+}
