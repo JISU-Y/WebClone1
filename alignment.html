@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alignment</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+            background-color: beige;
+        }
+        .inner {
+            width: 50%;
+            height: 50%;
+            background-color: blue;
+        }
+        .inner1 {
+            /* box도 block level, inner도 block level이므로 (사실 둘다 div이니까)
+            브라우저에서 한줄에 하나씩 들어가야해서 자동적으로 margin 채워줌 (보통 오른쪽) */
+            margin: auto;
+            /* auto로 하면 margin을 골고루 넣어줌 */
+            /* 수직으로는 정렬 안됨 */
+        }
+
+        .box2 {
+            text-align: center;
+            /* 지금 나타낸 box들은 block level이라서 text align가지고 align이 되지는 않지만
+            block level이 아닌 button등은 text align으로도 정렬이 가능해진다!
+            그리고 text align 쓸때는 그 부모 클래스로 가서
+            자식 클래스들에 대해 정렬을 선언해주어야 한다. */
+        }
+        
+        .inner3 {
+            transform: translate(50%, 50%);
+        }
+
+        .box4 h1 {
+            text-align: center;
+            /* 이건 좀 hacky한 방법
+            수평으로 정렬하고 싶을 때는 부모 크기를 지정해주면 텍스트 크기를 부모랑 맞추는 것 */
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h3>margin: auto</h3>
+    <div class="box box1">
+        <div class="inner inner1"></div>
+    </div>
+    <h3>margin: center</h3>
+    <div class="box box2">
+        <!-- <div class="inner inner2"></div> -->
+        <button>Text</button>
+    </div>
+    <h3>translate(50%, 50%)</h3>
+    <div class="box box3">
+        <div class="inner inner3"></div>
+    </div>
+    <h3>Text centering</h3>
+    <div class="box box4">
+        <h1>Text</h1>
+    </div>
+</body>
+</html>

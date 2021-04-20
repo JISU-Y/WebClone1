@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background</title>
+    <style>
+        .box {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+        .box1 {
+            /* 그냥 이렇게 설정하면 이미지가 잘리고 반복적으로 나타남 */
+            background-image: url(https://m.media-amazon.com/images/M/MV5BN2JlZTBhYTEtZDE3OC00NTA3LTk5NTQtNjg5M2RjODllM2M0XkEyXkFqcGdeQXVyNjk1Njg5NTA@._V1_UY1200_CR90,0,630,1200_AL_.jpg);
+            /* 이미지 브라우저 크기만큼 반복되지 않도록 */
+            background-repeat: no-repeat;
+            /* 이미지의 가운데를 나타내줌 */
+            background-position: center;
+            /* 브라우저 크기만큼 이미지를 나타내줌
+            브라우저 크기가 변하면서 이미지도 변화되어 나타남 */
+            background-size: cover;
+        }
+        .box2 {
+            /* 위에를 이렇게 줄여 쓸 수 있음 */
+            background: center/cover no-repeat
+            url(https://m.media-amazon.com/images/M/MV5BN2JlZTBhYTEtZDE3OC00NTA3LTk5NTQtNjg5M2RjODllM2M0XkEyXkFqcGdeQXVyNjk1Njg5NTA@._V1_UY1200_CR90,0,630,1200_AL_.jpg);
+        }
+        .box3 {
+            /* 위에를 이렇게 줄여 쓸 수 있음 */
+            background: repeat left
+            url(https://m.media-amazon.com/images/M/MV5BN2JlZTBhYTEtZDE3OC00NTA3LTk5NTQtNjg5M2RjODllM2M0XkEyXkFqcGdeQXVyNjk1Njg5NTA@._V1_UY1200_CR90,0,630,1200_AL_.jpg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+</body>
+</html>

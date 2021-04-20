@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box-sizing</title>
+    <style>
+        /* 기본 박스(공통 부모) */
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .inner {
+            /* 부모 박스의 100%를 차지함 */
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+        }
+        .box2 {
+            /* box sizing을 content-box로 해두었기 때문에
+            부모 박스(파란색 박스는 항상 100px을 유지함
+            padding을 주면 외부에 추가됨
+            border를 추가해도 외부로 추가됨 */
+            padding: 20px;
+            box-sizing: content-box;
+            border: 10px solid black;
+        }
+        .box3 {
+            /* border-box로 설정하면
+            설정해둔 100px을 유지하면서 padding과 border가 정해짐
+            실제 content는 40 40으로 줄어들었다고 보면 됨
+            대부분 border box로 사용 */
+            padding: 20px;
+            box-sizing: border-box;
+            border: 10px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h3>Box without padding</h3>
+    <div class="box box1">
+        <div class="inner"></div>
+    </div>
+    <h3>Box with padding</h3>
+    <div class="box box2">
+        <div class="inner"></div>
+    </div>
+    <h3>Box with padding, border-box</h3>
+    <div class="box box3">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

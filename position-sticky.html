@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position-sticky</title>
+    <style>
+        .container {
+            position: relative;
+            top: 100px;
+            left: 100px;
+            background-color: beige;
+        }
+        .box {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            background-color: chocolate;
+        }
+        .box2 {
+            background-color: hotpink;
+            /* 그냥 sticky로 설정한다고 
+            스크롤해서 내가 원하는 위치에 붙어있지 않음
+            어디로 얼만큼 떨어져서 붙어있을 것이냐를 설정해주어야함 */
+            position: sticky;
+            top: 0px;
+            left: 0px;
+        }
+        .box3 {
+            background-color: blue;
+            /* fixed 를 쓰게 되면
+            부모를 기준으로 위치되는게 아니라 기존 클래스에서 나와서
+            viewport 즉 브라우저 상을 기준으로 위치하게 됨 */
+            position: fixed;
+            top: 20px;
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+        <div class="box box5"></div>
+        <div class="box box6"></div>
+        <div class="box box7"></div>
+        <div class="box box8"></div>
+        <div class="box box9"></div>
+        <div class="box box10"></div>
+        <div class="box box8"></div>
+        <div class="box box9"></div>
+        <div class="box box10"></div>
+    </div>
+</body>
+</html>
