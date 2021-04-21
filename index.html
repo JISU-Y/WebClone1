@@ -54,13 +54,13 @@
         <button class="home__contact">Contact Me</button>
     </section>
     <!-- About -->
-    <section id="about">
+    <section id="about" class="section">
         <!-- 컨테이너(블록) 안의 내용(포맷)들이 반복됨.
         제목 -> 설명 -> 이미지 -> 내용 등등
     그래서 각각 블록으로 관리될 수 있도록 제네릭하게 해주어야한다. -->
         <h1>About me</h1>
         <p>
-            아직 프론트 엔드를 접하는 중이지만, 할 것은 많지만, 주눅들지 않고, 해낼 것예요.<br>
+            아직 프론트 엔드를 접하는 중이지만, 할 것은 많지만, 주눅들지 않고, 해낼 것이예요.<br>
             저는 저를 믿습니다.
         </p>
         <div class="about__majors">
@@ -68,39 +68,43 @@
                 <div class="major__icon">
                     <i class="fas fa-language"></i>
                 </div>
-                <div class="major__title">Language</div>
+                <h2 class="major__title">Language</h2>
                 <div class="major__description">Fluent in Korean,<br>Not bad in English.</div>
             </div>
             <div class="major">
                 <div class="major__icon">
                     <i class="far fa-file-code"></i>
                 </div>
-                <div class="major__title">Front-end</div>
+                <h2 class="major__title">Front-end</h2>
                 <div class="major__description">HTML, CSS<br>still learning Javascript</div>
             </div>
             <div class="major">
                 <div class="major__icon">
                     <i class="far fa-smile-beam"></i>
                 </div>
-                <div class="major__title">Positivity</div>
+                <h2 class="major__title">Positivity</h2>
                 <div class="major__description">Always keep me posivite<br>no matter what. And make it happen.</div>
             </div>
         </div>
         <div class="about__jobs">
             <div class="job">
                 <img src="imgs/ATIlogo.png" alt="ati" class="job__logo">
-                <p class="job__name">ATI - Field Application Engineer</p>
-                <p class="job__period">2019.06.17 ~ 2021.05.01</p>
+                <div class="job__description">
+                    <p class="job__name">ATI - Field Application Engineer</p>
+                    <p class="job__period">2019.06.17 ~ 2021.05.01</p>    
+                </div>
             </div>
             <div class="job">
                 <img src="imgs/ATIlogo.png" alt="ati" class="job__logo">
-                <p class="job__name">ATI - Application Engineer</p>
-                <p class="job__period">2019.06.17 ~ 2021.05.01</p>
+                <div class="job__description">
+                    <p class="job__name">Google</p>
+                    <p class="job__period">2025.01.28 ~ </p>    
+                </div>
             </div>
         </div>
     </section>
     <!-- skills -->
-    <section id="skills">
+    <section id="skills" class="section">
         <h1>Skills</h1>
         <h2>Skills & Attributes</h2>
         <p>
@@ -162,7 +166,7 @@
         </div>
     </section>
     <!-- work -->
-    <section id="work">
+    <section id="work" class="section">
         <h1>My Work</h1>
         <h3>projects</h3>
         <div class="work__categories">
@@ -214,7 +218,7 @@
         </div>
     </section>
     <!-- testimonials -->
-    <section id="testimonials">
+    <section id="testimonials" class="section">
         <h1>Testimonials</h1>
         <h3>see what they say about me</h3>
         <div class="testimonials">
@@ -235,7 +239,7 @@
         </div>
     </section>
     <!-- contact -->
-    <section id="contact">
+    <section id="contact" class="section">
         <h1 class="contact__title">Let's talk</h1>
         <h2 class="contact__email">jisu129@gmail.com</h2>
         <div class="contact__links">
