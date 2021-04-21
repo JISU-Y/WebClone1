@@ -8,6 +8,7 @@
   --color-mint: #c4d6ca;
   --color-grey-mint: #a9b4ac;
   --color-pink: #f5b6af;
+  --color-grey-pink: #d7c7bd;
   --color-hot-pink: hotpink;
 
   /* Font size */
@@ -98,7 +99,7 @@ p {
     두개로 나눌 거기 때문에 */
   display: flex;
   justify-content: space-between;
-  background-color: var(--color-pink);
+  background-color: var(--color-mint);
   align-items: center;
   color: var(--color-white);
   padding: 16px;
@@ -125,7 +126,7 @@ p {
 }
 
 .navbar__menu__item:hover {
-  background-color: var(--color-mint);
+  background-color: var(--color-grey-pink);
 }
 
 /* Home */
@@ -282,4 +283,109 @@ p {
 .tools,
 .etc {
   padding: 20px;
+}
+
+/* Work */
+.work__categories {
+  margin: 40px;
+}
+
+.category__btn {
+  border: 1px solid var(--color-dark-grey);
+  border-radius: var(--size-border-radius);
+  font-size: var(--font-regular);
+  padding: 8px 48px;
+}
+
+.category__btn.active,
+.category__btn:hover {
+  background-color: var(--color-grey-pink);
+  color: var(--color-white);
+}
+
+.category__btn.active .category__count,
+.category__btn:hover .category__count {
+  opacity: 1;
+  top: 0;
+}
+
+.category__count {
+  background-color: orange;
+  border-radius: 50%;
+  color: var(--color-white);
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  /* span은 컨텐츠를 아예 감싸기 때문에 */
+  display: inline-block;
+  position: relative;
+  top: -20px;
+  left: 4px;
+  /* 평소에는 보이지 않도록 */
+  opacity: 0;
+  transition: all var(--animation-duration) ease-in;
+}
+
+.work__projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 280px;
+  margin: 2px;
+  background-color: yellow;
+}
+
+.project__img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.project__description {
+  /* description도 project 박스 안에서
+  자리를 차지하는 클래스 이기 때문에
+  마우스가 올라갔을 때 description이 전체적인 박스에
+  나타내려고 한다면
+  그 자리를 벗어나서 덮어져야 하므로
+  absolute로 해준다. */
+  position: absolute;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all var(--animation-duration) ease-in;
+}
+
+.project:hover .project__description {
+  transform: translateY(0px);
+  opacity: 0.8;
+}
+
+.project__description h3 {
+  color: col var(--color-white);
+}
+
+.project__description h3:after {
+  content: "";
+  display: block;
+  position: relative;
+  left: 50%;
+  width: 25px;
+  height: 2px;
+  margin-left: -12px;
+  margin-top: 8px;
+  background-color: var(--color-grey);
 }
