@@ -34,13 +34,22 @@ navbarMenu.addEventListener("click", (event) => {
   // 요소가 있는 부모 요소에 스크롤해서 가져다 놓음
   //   const scrollTo = document.querySelector(link); // link는 #home, #about이니까 바로 넣어서 사용
   //   scrollTo.scrollIntoView({ behavior: "smooth" }); // 부드럽게 움직임
-  scrollIntoView(link);
+  scrollIntoView(link); // 인자만 전달해서 function 소환
 });
 
 // Handle click on 'contact me' button on home
 const contactBtn = document.querySelector(".home__contact");
 contactBtn.addEventListener("click", () => {
   scrollIntoView("#contact");
+});
+
+// Make home slowly fade to transparent as the window scrolls down
+const home = document.querySelector(".home__container"); // #home으루하면 home 모든 것이 날라감 background까지
+const homeHeight = home.getBoundingClientRect().height;
+document.addEventListener("scroll", () => {
+  // scrollY가 0에서 800이 되면서 homeHeight 나눈 거에다가 1을 뻄
+  console.log(1 - window.scrollY / homeHeight);
+  home.style.opacity = 1 - window.scrollY / homeHeight;
 });
 
 function scrollIntoView(selector) {
