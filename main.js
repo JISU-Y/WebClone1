@@ -77,6 +77,14 @@ workBtnContainer.addEventListener("click", (e) => {
   if (filter == null) {
     return;
   }
+  // remove selection form the previous item and select the new one
+  const active = document.querySelector(".category__btn.selected");
+  active.classList.remove("selected");
+  //   e.target이 button이면 e.target으로 지정하고, span이면 parentNode를 할당한다.
+  const target =
+    e.target.nodeName === "BUTTON" ? e.target : e.target.parentNode;
+  target.classList.add("selected");
+
   projectContainer.classList.add("anim-out");
   // anim out만 추가하면 opacity가 0인 채로 유지가 되기 때문에 안보인다.
   // 그러므로 300ms 가 지나면 anim out 클래스를 지워준다.
