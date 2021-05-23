@@ -478,6 +478,31 @@ p {
   transition: all var(--animation-duration) ease-in;
 }
 
+/* arrow up button */
+.arrow-up {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 70px;
+  height: 70px;
+  font-size: 50px;
+  background-color: var(--color-grey-mint);
+  color: var(--color-pink);
+  border-radius: 50%;
+  /* scroll 되었을 때만 보이게 
+  그런데 display none을 하게되면 transition을 적용할 수 없다.
+  그래서 여기서는 opactity를 0으로 해주자*/
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+  pointer-events: none;
+}
+
+.arrow-up.visible {
+  /* display: block; */
+  opacity: 1;
+  pointer-events: auto;
+}
+
 /* For below 768px screen width */
 @media screen and (max-width: 768px) {
   .navbar__toggle-btn {
