@@ -32,6 +32,18 @@ navbarMenu.addEventListener("click", (event) => {
   }
   //scrollIntoView()
   // 요소가 있는 부모 요소에 스크롤해서 가져다 놓음
-  const scrollTo = document.querySelector(link); // link는 #home, #about이니까 바로 넣어서 사용
-  scrollTo.scrollIntoView({ behavior: "smooth" }); // 부드럽게 움직임
+  //   const scrollTo = document.querySelector(link); // link는 #home, #about이니까 바로 넣어서 사용
+  //   scrollTo.scrollIntoView({ behavior: "smooth" }); // 부드럽게 움직임
+  scrollIntoView(link);
 });
+
+// Handle click on 'contact me' button on home
+const contactBtn = document.querySelector(".home__contact");
+contactBtn.addEventListener("click", () => {
+  scrollIntoView("#contact");
+});
+
+function scrollIntoView(selector) {
+  const scrollTo = document.querySelector(selector);
+  scrollTo.scrollIntoView({ behavior: "smooth" });
+}
