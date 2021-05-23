@@ -65,6 +65,41 @@ arrowUp.addEventListener("click", () => {
   scrollIntoView("#home");
 });
 
+//Projects
+const workBtnContainer = document.querySelector(".work__categories");
+const projectContainer = document.querySelector(".work__projects");
+const projects = document.querySelectorAll(".project");
+
+workBtnContainer.addEventListener("click", (e) => {
+  const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+  // 혹시라도 target에 filter가 없으면 그 타겟의 부모 요소의 filter를 찾아본다.
+  // 이렇게 할 수도 있지만 나는 지금 button 안에 span은 pointer event none으로 처리함
+  if (filter == null) {
+    return;
+  }
+  projectContainer.classList.add("anim-out");
+  // anim out만 추가하면 opacity가 0인 채로 유지가 되기 때문에 안보인다.
+  // 그러므로 300ms 가 지나면 anim out 클래스를 지워준다.
+  setTimeout(() => {
+    projectContainer.classList.remove("anim-out");
+  }, 500);
+  // remove 까지 되고 나서 projects loop 돌려야 자연스럽게 나온다.
+  // 왜냐면 동기적으로 작동하므로 anim out 추가하자마자
+  // 밑에 invisible 클래스를 지정해주기 때문에 조금 이상하게 나온다.
+
+  projects.forEach((project) => {
+    console.log(project.dataset.type);
+    if (filter === "*" || filter === project.dataset.type) {
+      // 안보여주는 것을 제거함
+      // 왜냐면 all을 선택하거나 지금 선택된 버튼 filter랑 profect 속성 type이랑 같을 때는
+      // 보여주어야 하니까
+      project.classList.remove("invisible");
+    } else {
+      project.classList.add("invisible");
+    }
+  });
+});
+
 function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: "smooth" });
