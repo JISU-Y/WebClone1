@@ -30,11 +30,19 @@ navbarMenu.addEventListener("click", (event) => {
     // navbar menu 바탕을 눌렀을 때는 undefined를 가져오므로
     return;
   }
+  navbarMenu.classList.remove("open");
+
   //scrollIntoView()
   // 요소가 있는 부모 요소에 스크롤해서 가져다 놓음
   //   const scrollTo = document.querySelector(link); // link는 #home, #about이니까 바로 넣어서 사용
   //   scrollTo.scrollIntoView({ behavior: "smooth" }); // 부드럽게 움직임
   scrollIntoView(link); // 인자만 전달해서 function 소환
+});
+
+// Navbar toggle button for small screen
+const navbarToggleBtn = document.querySelector(".navbar__toggle-btn");
+navbarToggleBtn.addEventListener("click", () => {
+  navbarMenu.classList.toggle("open");
 });
 
 // Handle click on 'contact me' button on home
