@@ -56,7 +56,7 @@ const home = document.querySelector(".home__container"); // #home으루하면 ho
 const homeHeight = home.getBoundingClientRect().height;
 document.addEventListener("scroll", () => {
   // scrollY가 0에서 800이 되면서 homeHeight 나눈 거에다가 1을 뻄
-  console.log(1 - window.scrollY / homeHeight);
+  // console.log(1 - window.scrollY / homeHeight);
   home.style.opacity = 1 - window.scrollY / homeHeight;
 });
 
@@ -116,7 +116,84 @@ workBtnContainer.addEventListener("click", (e) => {
   });
 });
 
+// 일단 모든 section들과 메뉴 아이템 가져옴
+const sectionIds = [
+  "#home",
+  "#about",
+  "#skills",
+  "#work",
+  "#testimonials",
+  "#contact",
+];
+
+// forEach 처럼
+const sections = sectionIds.map((id) => document.querySelector(id));
+const navItems = sectionIds.map((id) =>
+  document.querySelector(`[data-link="${id}"]`)
+); // id가 담긴 data-link 속성 모두 가져옴
+// console.log(sections);
+// console.log(navItems);
+
+let selectedNavItem = navItems[0];
+let selectedNavIndex;
+
+function selectNavItem(selected) {
+  selectedNavItem.classList.remove("active"); // 먼저 선택된 것은 active 지워주고
+  // selectedNavItem = navItems[selectedIndex]; // 그 다음에 선택될 것을 active 추가해줌
+  selectedNavItem = selected; // 그 다음에 선택될 것을 active 추가해줌
+  selectedNavItem.classList.add("active"); // 아니면 지나가는 거 마다 다 선택됨
+}
+
 function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: "smooth" });
+  // 직접 버튼을 클릭했을 때도 활성화가 적용이 되게
+  selectNavItem(navItems[sectionIds.indexOf(selector)]); // selector는 #뭐뭐뭐니까!!
 }
+
+const observerOptions = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.3,
+};
+// observer 객체안에 인자 두개 필요(entries, observer)
+// 객체 생성 후 부를 함수
+const observerCallback = (entries, observer) => {
+  entries.forEach((entry) => {
+    // 요소가 빠져나갔을 때와, 지금 요소의 ratio 가 0 이상일 때만(다 보여져 있는 상태일 때만)
+    if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+      // 요소가 빠져 나갈때
+      // 그 때의 왼쪽 위 y 좌표를 얻어서 -일 경우는 위로 빠져나간 것이고
+      // +일 경우 아래로 빠져 나간 것임을 이용
+      const index = sectionIds.indexOf(`#${entry.target.id}`);
+
+      if (entry.boundingClientRect.y < 0) {
+        // 페이지가 올라가는 중에 요소가 빠져나간 경우
+        // 빠져나간 요소의 그 다음 요소를 활성화 시킴
+        selectedNavIndex = index + 1;
+      } else {
+        selectedNavIndex = index - 1;
+      }
+    }
+  });
+};
+
+// 함수와 설정을 인자로 같이 넣어준다.
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+sections.forEach((section) => observer.observe(section)); // observer로 관측한 section을 보여준다.
+
+// wheel은 사용자가 스스로 스크롤한 경우만
+// scroll은 그냥 보여지는 작동 자체
+window.addEventListener("wheel", () => {
+  if (window.scrollY === 0) {
+    // scroll이 제일 위에 있으면
+    selectedNavIndex = 0;
+  } else if (
+    // scrollY이랑 더한 값이 소수점으로 나올 수도 있기 때문에 반올림 한다.
+    Math.round(window.scrollY + window.innerHeight) >=
+    document.body.clientHeight
+  ) {
+    selectedNavIndex = navItems.length - 1;
+  }
+  selectNavItem(navItems[selectedNavIndex]);
+});
