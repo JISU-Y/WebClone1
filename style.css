@@ -177,6 +177,10 @@ p {
   border-radius: var(--size-border-radius);
 }
 
+.home__contact:hover {
+  background-color: orange;
+}
+
 /* Section common */
 .section {
   padding: 50px;
@@ -229,6 +233,10 @@ p {
 .job {
   display: flex;
   align-items: center;
+}
+
+.job__logo {
+  width: 50%;
 }
 
 .job__description {
@@ -310,6 +318,7 @@ p {
 }
 
 .category__btn {
+  position: relative;
   border: 1px solid var(--color-dark-grey);
   border-radius: var(--size-border-radius);
   font-size: var(--font-regular);
@@ -337,9 +346,9 @@ p {
   line-height: 24px;
   /* span은 컨텐츠를 아예 감싸기 때문에 */
   display: inline-block;
-  position: relative;
+  position: absolute;
   top: -20px;
-  left: 4px;
+  right: 16px;
   /* 평소에는 보이지 않도록 */
   opacity: 0;
   transition: all var(--animation-duration) ease-in;
@@ -518,14 +527,32 @@ p {
 
 /* For below 768px screen width */
 @media screen and (max-width: 768px) {
+  /* media query가 적용되었을 때는 이 밑에있는 root 설정으로 변함 */
+  :root {
+    --font-large: 30px;
+    --font-medium: 18px;
+    --font-regular: 16px;
+    --font-small: 14px;
+    --font-micro: 12px;
+  }
+
   .navbar__toggle-btn {
     display: block;
+    top: 16px;
+    right: 16px;
+    font-size: var(--font-medium);
   }
 
   #navbar {
     flex-direction: column;
     align-items: flex-start;
     background-color: var(--color-pink);
+    padding: 4px;
+  }
+
+  .section {
+    padding: 16px;
+    padding-top: 40px;
   }
 
   #navbar.navbar--dark {
@@ -551,20 +578,56 @@ p {
     flex-direction: column;
   }
 
+  .about__majors {
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 0;
+  }
+
   .major {
-    margin-bottom: 38px;
+    margin-bottom: 30px;
   }
 
   .skillset {
     flex-direction: column;
   }
 
+  .category__btn {
+    margin: 4px 0;
+    width: 100%;
+  }
+
   .project {
     flex-grow: 1;
   }
 
+  .testimonial {
+    flex-direction: column;
+    align-items: center;
+    /* 무조건 avartar가 먼저 나오도록 */
+  }
+
   .testimonial__avartar {
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
+  }
+
+  .testimonial__avartar:nth-child(even),
+  .testimonial__avartar:nth-child(odd) {
+    margin: 0 0 8px 0;
+  }
+
+  .testimonial__speech-bubble {
+    order: 1;
+  }
+
+  .arrow-up {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    line-height: 50px;
+    /* 모바일에서는 보통 16px을 많이 사용 */
+    right: 16px;
+    bottom: 16px;
   }
 }
